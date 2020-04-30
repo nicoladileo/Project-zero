@@ -1,0 +1,41 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:n="native" xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<div viewModel="@id('vm') @init('io.github.nicoladileo.viewmodel.GraficiVM')" apply="org.zkoss.bind.BindComposer" validationMessages="@id('vmsgs')"  width="100%"> 
+		<separator />
+		<separator />
+
+		<div style="padding:5px">
+			<n:div class="alert alert-info" role="alert">
+  				<label class="home-title" value="Grafici"></label>
+			</n:div>
+			<div class="row">
+				<div class="col-lg-4 col-xs-12"> 
+					<div class="rounded-grey-empty">	
+						<label class="application-title-small" value="Grafico 1"></label>
+						<n:br/>
+						<n:canvas id="grafico1"></n:canvas>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-12"> 
+					<div class="rounded-grey-empty">	
+						<label class="application-title-small" value="Grafico 2"></label>
+						<n:br/>
+						<n:canvas id="grafico2"></n:canvas>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-12"> 
+					<div class="rounded-grey-empty">	
+						<label class="application-title-small" value="Grafico 3"></label>
+						<n:br/>
+						<n:canvas id="grafico3"></n:canvas>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-xs-12"> 
+					<button id="btnAccedi" class="btn btn-plain-lightgrey btn-block" label="Stampa" onClick="@command('stampa')" />
+				</div>
+			</div>
+		</div>
+	</div>
+</zk>

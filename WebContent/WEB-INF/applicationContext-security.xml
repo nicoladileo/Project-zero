@@ -1,0 +1,43 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2xsd
+	 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+ 	<!--  HTTP configuration sample -->
+ 	<http pattern="/css/**" security="none" />
+ 	<http pattern="/fonts/**" security="none" />
+ 	<http pattern="/img/**" security="none" />
+	<http auto-config="true">
+		<!-- ZK AU requests -->
+		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!-- the login page -->
+		<!-- pages for anonymous access in an application -->
+		<intercept-url pattern="/index.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/logout.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!-- secure pages -->
+		<intercept-url pattern="/**" access="ROLE_PRZERO" />
+		<access-denied-handler error-page="/accessoNegato.zul"/>
+		
+		<form-login login-page="/index.zul" authentication-success-handler-ref="authSuccessHandler" authentication-failure-handler-ref="authFailureHandler"/>
+		<logout logout-success-url="/logout.zul" invalidate-session="true" />
+	</http>
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetails">
+			<password-encoder hash="md5" />
+		</authentication-provider>
+	</authentication-manager>
+	<!-- Bean implementing AuthenticationProvider of Spring Security -->
+	<beans:bean id="userDetails" class="io.github.nicoladileo.security.MyUserDetails">
+	</beans:bean>
+	<beans:bean id="authSuccessHandler" class="io.github.nicoladileo.security.AuthSuccessHandler">
+	</beans:bean>
+	<beans:bean id="authFailureHandler" class="io.github.nicoladileo.security.AuthFailureHandler">
+	</beans:bean>
+	
+	
+	<global-method-security secured-annotations="enabled" />
+</beans:beans>

@@ -1,0 +1,75 @@
+<?page title="projectzero"?>
+<?link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/style.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/calendar.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/glyph.css" ?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?taglib uri="/WEB-INF/security.tld" prefix="sec"?>
+<zk xmlns:w="client" xmlns:n="native">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+	<script>
+	  var OneSignal = window.OneSignal || [];
+	  OneSignal.push(function() {
+	    OneSignal.init({
+	      appId: "",
+	    });
+	  });
+	</script>
+	<borderlayout id="borderPrincipale" sclass="mainLayout" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')  @init('io.github.nicoladileo.viewmodel.MainAppVM')">
+		<center id="loginPrincipale" style="overflow-x:hidden; overflow-y:auto; border:none !important">
+			<div>
+				<n:nav class="navbar navbar-expand-md bg-dark navbar-dark">
+				  	<a class="navbar-brand" href="#">Project zero</a>
+					<n:button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				    	<n:span class="navbar-toggler-icon"></n:span>
+				  	</n:button>
+					<n:div class="collapse navbar-collapse" id="collapsibleNavbar">
+				    	<n:ul class="navbar-nav">
+				    		<div>
+					      		<n:li class="nav-item">
+					        		<a class="nav-link" onClick="@global-command('caricaPaginaHome')">
+					        			<span class="glyphicon glyphicon-home fs15-white"/>
+										<label style="padding:5px" class="fs15-white" value="Home"/>
+					        		</a>
+					      		</n:li>
+				      		</div>
+				      		<div>
+					   	  		<n:li class="nav-item">
+					        		<a class="nav-link" onClick="@global-command('caricaPaginaLingua')">
+					        			<span class="glyphicon glyphicon-globe fs15-white"/>
+										<label style="padding:5px" class="fs15-white" value="Lingua"/>
+					        		</a>
+					      		</n:li>
+				      		</div>
+				      		<div visible="${sec:isAnyGranted('ROLE_001')}">
+					   	  		<n:li class="nav-item">
+					        		<a class="nav-link" onClick="@global-command('caricaPaginaGrafici')">
+					        			<span class="glyphicon glyphicon-list fs15-white"/>
+										<label style="padding:5px" class="fs15-white" value="Grafici"/>
+					        		</a>
+					      		</n:li>
+				      		</div>
+					      	<div>
+					      		<n:li class="nav-item">
+					        		<a class="nav-link" href="/j_spring_security_logout">
+					        			<span class="glyphicon glyphicon-off fs15-white"/>
+										<label style="padding:5px" class="fs15-white" value="Logout"/>
+					        		</a>
+					      		</n:li>
+					      	</div>
+			     		</n:ul>
+			   		</n:div>
+				 </n:nav>
+				 <div>
+					<include id="centerPrincipale"/> 
+				</div>
+			</div>
+		</center>
+	</borderlayout>			
+</zk>

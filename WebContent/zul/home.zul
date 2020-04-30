@@ -1,0 +1,28 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:n="native" xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<div viewModel="@id('vm') @init('io.github.nicoladileo.viewmodel.HomeVM')" apply="org.zkoss.bind.BindComposer" validationMessages="@id('vmsgs')"  width="100%"> 
+		<separator />
+		<separator />
+
+		<div style="padding:5px">
+			<n:div class="alert alert-info" role="alert">
+  				<label class="home-title" value="Home"></label>
+			</n:div>
+			<div class="row">
+				<div class="col-lg-7" style="padding-top: 15px !important;">
+					<label style="font-size: 16px" value="@load(c:cat3('Sei entrato come',' ',vm.userInfo))"/>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-lg-7" style="padding-top: 15px !important;">
+					<label style="font-size: 16px" value="Autorizzazioni"/>
+					<listbox model="@load(vm.ruoli)">
+						<template name="model">
+							<listitem label="@load(each)"/>
+						</template>
+					</listbox>
+				</div>				
+			</div>
+		</div>
+	</div>
+</zk>

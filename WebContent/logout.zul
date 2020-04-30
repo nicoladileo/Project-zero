@@ -1,0 +1,77 @@
+<?page title="projectzero"?>
+<?link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/style.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/glyph.css" ?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:w="client" xmlns:n="native">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+	<borderlayout id="borderPrincipale" sclass="mainLayout">
+		<center style="overflow-x:hidden; overflow-y:auto; border:none !important">
+			<div>
+				<n:nav class="navbar navbar-expand-md bg-dark navbar-dark">
+				  <a class="navbar-brand" href="#">Project zero</a>
+				</n:nav>
+				<div id="principal" class="row" style="margin-right:0px; margin-left:0px">
+					<div class="col-sm-12 col-md-4 col-lg-4"/>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 box-login">
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center">
+									<label class="application-title" value="Project zero"/>
+								</div>
+							</div>
+							<separator/>
+							<separator/>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center">
+									<label class="application-title-small" value="Sei stato disconnesso"/>
+								</div>
+							</div>
+							<separator />
+							<separator />
+							<separator />
+							
+							
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center">
+									<a label="Vai a login" style="font-size: 14px;" href="/"/>
+								</div>
+							</div>
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+						</div>
+				</div>
+			</div>
+		</center>
+	</borderlayout>			
+</zk>

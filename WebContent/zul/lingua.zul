@@ -1,0 +1,39 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:n="native" xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<div viewModel="@id('vm') @init('io.github.nicoladileo.viewmodel.LinguaVM')" apply="org.zkoss.bind.BindComposer" validationMessages="@id('vmsgs')"  width="100%"> 
+		<separator />
+		<separator />
+
+		<div style="padding:5px">
+			<n:div class="alert alert-info" role="alert">
+  				<label class="home-title" value="Multilingua"></label>
+			</n:div>
+			<label style="font-size: 16px" value="Seleziona lingua"/>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<a style="padding:5px;" href="#" onClick="@command('cambioLingua',lang='it_IT')" >
+						<image src="/img/flag_it.png">
+						</image>
+					</a>
+					<a style="padding:5px;" href="#" onClick="@command('cambioLingua',lang='en_GB')">
+						<image src="/img/flag_en.png">
+						</image>
+					</a>
+				</div>
+			</div>
+			<separator/>
+			<separator/>
+			<separator/>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<label style="font-size: 16px" value="@load(c:l('label1.text'))"></label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<label style="font-size: 16px"  value="@load(c:l('label2.text'))"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</zk>
